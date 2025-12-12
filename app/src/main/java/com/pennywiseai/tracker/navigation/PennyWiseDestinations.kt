@@ -45,5 +45,15 @@ object Faq
 @Serializable
 object Rules
 
+
 @Serializable
 object CreateRule
+
+@Serializable
+object SpendSense
+
+@Serializable
+object MoneyBuddy
+
+@Serializable
+object WalletMap

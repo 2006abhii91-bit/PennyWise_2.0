@@ -199,6 +199,7 @@ fun PennyWiseNavHost(
             )
         }
         
+
         composable<AccountDetail>(
             enterTransition = { EnterTransition.None },
             exitTransition = { ExitTransition.None },
@@ -208,6 +209,45 @@ fun PennyWiseNavHost(
             val accountDetail = backStackEntry.toRoute<AccountDetail>()
             com.pennywiseai.tracker.presentation.accounts.AccountDetailScreen(
                 navController = navController
+            )
+        }
+        
+        composable<SpendSense>(
+            enterTransition = { EnterTransition.None },
+            exitTransition = { ExitTransition.None },
+            popEnterTransition = { EnterTransition.None },
+            popExitTransition = { ExitTransition.None }
+        ) {
+            com.pennywiseai.tracker.ui.screens.smarthub.SpendSenseScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+        
+        composable<MoneyBuddy>(
+            enterTransition = { EnterTransition.None },
+            exitTransition = { ExitTransition.None },
+            popEnterTransition = { EnterTransition.None },
+            popExitTransition = { ExitTransition.None }
+        ) {
+            com.pennywiseai.tracker.ui.screens.smarthub.MoneyBuddyScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+        
+        composable<WalletMap>(
+            enterTransition = { EnterTransition.None },
+            exitTransition = { ExitTransition.None },
+            popEnterTransition = { EnterTransition.None },
+            popExitTransition = { ExitTransition.None }
+        ) {
+            com.pennywiseai.tracker.ui.screens.smarthub.WalletMapScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
             )
         }
         

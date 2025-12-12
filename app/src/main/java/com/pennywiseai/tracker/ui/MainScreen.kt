@@ -249,8 +249,13 @@ fun MainScreen(
                 )
             }
 
+
+
             composable("smarthub") {
-                com.pennywiseai.tracker.ui.screens.SmartHubDashboardScreen()
+                com.pennywiseai.tracker.ui.screens.SmartHubDashboardScreen(
+                    navController = navController,
+                    rootNavController = rootNavController
+                )
             }
             
             composable("settings") {
