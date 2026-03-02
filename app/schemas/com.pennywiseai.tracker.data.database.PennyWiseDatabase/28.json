@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 27,
-    "identityHash": "78257e6f7c73f00a062ee752a6ba5e7b",
+    "version": 28,
+    "identityHash": "4a92a49b803c4fb385847bffcf0eca6c",
     "entities": [
       {
         "tableName": "transactions",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `transactionType` TEXT NOT NULL, `amount` TEXT NOT NULL, `dateTime` TEXT NOT NULL, `merchantName` TEXT, `category` TEXT, `description` TEXT, `smsBody` TEXT, `bankName` TEXT, `smsSender` TEXT, `accountNumber` TEXT, `balanceAfter` TEXT, `transactionHash` TEXT, `isRecurring` INTEGER NOT NULL, `isDeleted` INTEGER NOT NULL, `createdAt` TEXT NOT NULL, `updatedAt` TEXT NOT NULL, `currency` TEXT NOT NULL, `fromAccount` TEXT, `toAccount` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `type` TEXT NOT NULL, `amount` REAL NOT NULL, `timestamp` INTEGER NOT NULL, `month` INTEGER NOT NULL, `year` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,107 +15,34 @@
             "notNull": true
           },
           {
-            "fieldPath": "transactionType",
-            "columnName": "transactionType",
+            "fieldPath": "type",
+            "columnName": "type",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "amount",
             "columnName": "amount",
-            "affinity": "TEXT",
+            "affinity": "REAL",
             "notNull": true
           },
           {
-            "fieldPath": "dateTime",
-            "columnName": "dateTime",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "merchantName",
-            "columnName": "merchantName",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "category",
-            "columnName": "category",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "description",
-            "columnName": "description",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "smsBody",
-            "columnName": "smsBody",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "bankName",
-            "columnName": "bankName",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "smsSender",
-            "columnName": "smsSender",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "accountNumber",
-            "columnName": "accountNumber",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "balanceAfter",
-            "columnName": "balanceAfter",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "transactionHash",
-            "columnName": "transactionHash",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "isRecurring",
-            "columnName": "isRecurring",
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "isDeleted",
-            "columnName": "isDeleted",
+            "fieldPath": "month",
+            "columnName": "month",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "createdAt",
-            "columnName": "createdAt",
-            "affinity": "TEXT",
+            "fieldPath": "year",
+            "columnName": "year",
+            "affinity": "INTEGER",
             "notNull": true
-          },
-          {
-            "fieldPath": "updatedAt",
-            "columnName": "updatedAt",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "currency",
-            "columnName": "currency",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "fromAccount",
-            "columnName": "fromAccount",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "toAccount",
-            "columnName": "toAccount",
-            "affinity": "TEXT"
           }
         ],
         "primaryKey": {
@@ -965,7 +892,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '78257e6f7c73f00a062ee752a6ba5e7b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4a92a49b803c4fb385847bffcf0eca6c')"
     ]
   }
 }

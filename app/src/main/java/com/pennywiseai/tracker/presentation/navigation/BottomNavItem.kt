@@ -15,7 +15,7 @@ sealed class BottomNavItem(
 ) {
     data object Home : BottomNavItem(
         route = "home",
-        title = "Home",
+        title = "ABHILAS",
         icon = Icons.Default.Home
     )
     

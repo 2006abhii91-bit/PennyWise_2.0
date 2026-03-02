@@ -1,14 +1,18 @@
+
 package com.pennywiseai.tracker.di
 
+import android.content.Context
 import com.pennywiseai.tracker.data.currency.CurrencyConversionService
 import com.pennywiseai.tracker.data.currency.ExchangeRateProvider
 import com.pennywiseai.tracker.data.currency.ExchangeRateProviderFactory
 import com.pennywiseai.tracker.data.database.dao.ExchangeRateDao
 import com.pennywiseai.tracker.data.preferences.UserPreferencesRepository
+import com.pennywiseai.tracker.data.repository.SpendSenseRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 /**
@@ -49,5 +53,19 @@ object ApplicationModule {
             exchangeRateProvider = exchangeRateProvider,
             userPreferencesRepository = userPreferencesRepository
         )
+    }
+
+    /**
+     * Provides the SpendSenseRepository for SpendSense dashboard operations.
+     *
+     * @param context Application context for SMS reading and database access
+     * @return SpendSenseRepository for managing SpendSense functionality
+     */
+    @Provides
+    @Singleton
+    fun provideSpendSenseRepository(
+        @ApplicationContext context: Context
+    ): SpendSenseRepository {
+        return SpendSenseRepository(context = context)
     }
 }
